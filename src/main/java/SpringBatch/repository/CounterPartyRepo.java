@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface CounterPartyRepo extends JpaRepository<CounterParty, String> {
 
-    @Query(value = "select cmId from cptys where counName=:cName AND clientCmId=:cCmid state='A'")
-    Optional<String> findByCountName(@Param("cName") String cName, @Param("cCmid") String cCmid);
+    @Query(value = "select cmId from REF_CPTYS where lookup = :orgCode AND clientCmId = :cCmid AND state = 'A'", nativeQuery = true)
+    Optional<String> findByCountName(@Param("orgCode") String orgCode, @Param("cCmid") String cCmid);
 }

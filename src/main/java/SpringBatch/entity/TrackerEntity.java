@@ -1,7 +1,6 @@
 package SpringBatch.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
@@ -13,10 +12,12 @@ import java.time.LocalDateTime;
 @Data
 @Component
 @ToString
-@Table(name="TRACKER")
+@Entity
+@Table(name="FEED_TRACKER")
 public class TrackerEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String batchId;
     private String service;

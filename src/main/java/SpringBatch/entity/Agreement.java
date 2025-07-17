@@ -1,6 +1,7 @@
 package SpringBatch.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
@@ -12,28 +13,16 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 @ToString
-@Table(name="AGREEMENT")
+@Entity
+@Table(name="REF_AGREEMENT")
 public class Agreement {
 
     @Id
-    @Column(name = "AgreementId")
-    private String agreementId;
-
-    @Column(name = "AgreementName")
-    private String agreementName;
-
-    @Column(name = "PrincipalCmId")
+    private String cmId;
+    private String name;
     private String principalCmId;
-
-    @Column(name = "CptyCmId")
     private String cptyCmId;
-
-    @Column(name = "State")
     private String state;
-
-    @Column(name = "ClientCmId")
     private String clientCmId;
-
-    @Column(name = "ExternalId")
     private String externalId;
 }

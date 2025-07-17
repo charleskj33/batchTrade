@@ -1,4 +1,5 @@
 package SpringBatch;
+import SpringBatch.Util.JsonBuilder;
 import SpringBatch.dto.TradeDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

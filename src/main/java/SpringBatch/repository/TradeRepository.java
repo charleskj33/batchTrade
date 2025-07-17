@@ -11,15 +11,16 @@ import java.time.LocalDateTime;
 @Repository
 public interface TradeRepository extends JpaRepository<TradeEntity, Long> {
 
-    @Query("SELECT CASE WHEN COUNT(t) >0 THEN true ELSE false END " + "FROM TradeEntity t" +
-            "WHERE t.clientName = :clientName" +
-            "AND t.feedType = :feedType" +
-            "AND t.insertedTimeStamp >= :startOfDay" +
+    @Query("SELECT CASE WHEN COUNT(t) > 0 THEN true ELSE false END " +
+            "FROM TradeEntity t " +
+            "WHERE t.clientName = :clientName " +
+            "AND t.sourceSystem = :sourceSystem " +
+            "AND t.insertedTimeStamp >= :startOfDay " +
             "AND t.insertedTimeStamp < :endOfDay")
     boolean existsForCLientToday(
             @Param("clientName") String clientName,
-            @Param("feedType") String feedType,
+            @Param("sourceSystem") String sourceSystem,
             @Param("startOfDay") LocalDateTime startOfDay,
             @Param("endOfDay") LocalDateTime endOfDay
-            );
+    );
 }

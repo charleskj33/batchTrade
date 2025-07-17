@@ -1,3 +1,4 @@
+/*
 package SpringBatch.controller;
 
 import SpringBatch.blobStorage.EventGridEvent;
@@ -91,3 +92,4 @@ public class EventGridController {
         return url; // Return full URL if no slash found or it's the last char
     }
 }
+*/

@@ -62,7 +62,7 @@ public class ReaderConfig {
     }
 
     @Bean
-    private LineMapper<TradeDto> lineMapper() {
+    public LineMapper<TradeDto> lineMapper() {
         DefaultLineMapper<TradeDto> lineMapper = new DefaultLineMapper<>();
         int expectedFields = 6;
 

@@ -11,6 +11,10 @@ import java.util.Optional;
 @Repository
 public interface AgreementRepo extends JpaRepository<Agreement, String> {
 
-    @Query(value = "SELECT * FROM AGREEMENT WHERE PRINICALID =:pCmId and cptyCmId=:cCmId AND state='A'")
+    @Query(
+            value = "SELECT * FROM REF_AGREEMENT WHERE principalCmId = :pCmId AND cptyCmId = :cCmId AND state = 'A'",
+            nativeQuery = true
+    )
     Optional<Agreement> findByExternalId(@Param("pCmId") String pCmId, @Param("cCmId") String cCmId);
 }
+
